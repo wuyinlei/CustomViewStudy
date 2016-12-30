@@ -699,7 +699,9 @@ ViewGroup首先执行了layout方法确定了自己在它父view当中的位置�
 ```
 ####3、Canvas常用操作
 1、canvas.translate(移动坐标系)
+
 ![](http://ww3.sinaimg.cn/mw690/006jcGvzgw1fb8wtr82lgj30oy0e8mxh.jpg)
+
 ```
  @Override
     protected void onDraw(Canvas canvas) {
@@ -716,7 +718,9 @@ ViewGroup首先执行了layout方法确定了自己在它父view当中的位置�
         canvas.drawText("灰色字体为translte之后所化",20,80,paint);
     }
 ```
+
 ![](http://ww4.sinaimg.cn/mw690/006jcGvzgw1fb8xmzmu84j30e609mmxu.jpg)
+
 2、canvas.rotate
 旋转了坐标系
 ```
@@ -735,7 +739,9 @@ ViewGroup首先执行了layout方法确定了自己在它父view当中的位置�
         canvas.drawText("灰色字体为rotate之后所化",20,80,paint);
     }
 ```
+
 ![](http://ww1.sinaimg.cn/mw690/006jcGvzgw1fb8xmdyrphj30ea0e83zg.jpg)
+
 3、canvas.clipRect
 裁剪操作  当canvas执行了这个操作，在剪裁后执行的任何绘制，有效的绘制区间就在剪裁这个区域内。
 >剪裁是不可逆的，如果我们需要在剪裁完成并且绘制完成之后，想要恢复绘制区域，在原来的绘制区域进行绘制，我们就需要第四个方法了也就是下面的canvas.save和canvas.restore方法
@@ -757,7 +763,9 @@ ViewGroup首先执行了layout方法确定了自己在它父view当中的位置�
         canvas.drawText("灰色字体为canvas裁剪之后所绘制",10,300,paint);
     }
 ```
+
 ![](http://ww1.sinaimg.cn/mw690/006jcGvzgw1fb8xlkpt55j30e80ba750.jpg)
+
 4、canvas.save和canvas.restore
 ```
  @Override
@@ -783,7 +791,9 @@ ViewGroup首先执行了layout方法确定了自己在它父view当中的位置�
         canvas.drawText("红色字体为Canvas恢复裁剪之后所绘制",20,170,paint);
     }
 ```
+
 ![](http://ww2.sinaimg.cn/mw690/006jcGvzgw1fb8xk62wzvj30m609g755.jpg)
+
 >canvas.save();  //一旦执行了save  就表明锁定了画布
         //在干其他的绘制，之前保存的绘制是不会被影响的
         // save之后会生成一个新的图层Layer  透明的图层  之后所进行的操作都会发生在Layer上面
