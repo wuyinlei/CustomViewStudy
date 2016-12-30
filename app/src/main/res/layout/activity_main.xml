@@ -9,70 +9,80 @@
     tools:context="com.renren.customviewstudy.MainActivity">
 
 
-        <com.renren.customviewstudy.view.CustomTitleView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:visibility="gone"
-            app:titleText="@string/app_name"
-            app:titleTextColor="@color/colorPrimary"
-            app:titleTextSize="18dp"
-            />
+    <com.renren.customviewstudy.view.CustomTitleView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:visibility="gone"
+        app:titleText="@string/app_name"
+        app:titleTextColor="@color/colorPrimary"
+        app:titleTextSize="18dp"
+        />
 
-        <com.renren.customviewstudy.view.CustomImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:visibility="gone"
-            app:image="@mipmap/ic_launcher"
-            app:imageScaleType="center"
-            app:titleText="@string/app_name"
-            app:titleTextColor="@color/colorAccent"
-            app:titleTextSize="18dp"/>
+    <com.renren.customviewstudy.view.CustomImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:visibility="gone"
+        app:image="@mipmap/ic_launcher"
+        app:imageScaleType="center"
+        app:titleText="@string/app_name"
+        app:titleTextColor="@color/colorAccent"
+        app:titleTextSize="18dp"/>
 
-        <com.renren.customviewstudy.view.CustomImageView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            app:image="@mipmap/ic_launcher"
-            app:imageScaleType="center"
-            app:titleText="@string/app_name"
-            app:titleTextColor="@color/colorAccent"
-            app:titleTextSize="18dp"/>
+    <com.renren.customviewstudy.view.CustomImageView
+        android:id="@+id/customImageView"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:visibility="gone"
+        app:image="@mipmap/ic_launcher"
+        app:imageScaleType="center"
+        app:titleText="@string/app_name"
+        app:titleTextColor="@color/colorAccent"
+        app:titleTextSize="18dp"/>
 
-        <com.renren.customviewstudy.view.CustomImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:visibility="gone"
-            app:image="@mipmap/image_meizi"
-            app:imageScaleType="center"
-            app:titleText="@string/app_name"
-            app:titleTextColor="@color/colorAccent"
-            app:titleTextSize="30dp"/>
+    <com.renren.customviewstudy.view.CustomImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:visibility="gone"
+        app:image="@mipmap/image_meizi"
+        app:imageScaleType="center"
+        app:titleText="@string/app_name"
+        app:titleTextColor="@color/colorAccent"
+        app:titleTextSize="30dp"/>
 
-        <com.renren.customviewstudy.studyview.TranslateViewTest
-            android:layout_width="wrap_content"
-            android:visibility="visible"
-            android:layout_height="wrap_content"/>
+    <com.renren.customviewstudy.studyview.TranslateViewTest
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 
-        <com.renren.customviewstudy.studyview.RotateViewTest
-            android:layout_width="wrap_content"
-            android:visibility="gone"
-            android:layout_height="wrap_content"
-            android:id="@+id/rotateViewTest"/>
+    <com.renren.customviewstudy.studyview.RotateViewTest
+        android:id="@+id/rotateViewTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 
-        <com.renren.customviewstudy.studyview.ClipViewTest
-           android:visibility="gone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <com.renren.customviewstudy.studyview.ClipViewTest
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 
-        <com.renren.customviewstudy.studyview.SaveViewTest
+    <com.renren.customviewstudy.studyview.SaveViewTest
 
-            android:visibility="gone" android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:id="@+id/image"
+        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="200dp"/>
 
 </LinearLayout>
