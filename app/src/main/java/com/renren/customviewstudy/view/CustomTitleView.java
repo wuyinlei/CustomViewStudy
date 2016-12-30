@@ -1,4 +1,4 @@
-package com.renren.customviewstudy;
+package com.renren.customviewstudy.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,12 +11,17 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
+import com.renren.customviewstudy.R;
+
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
 /**
- * Created by wuyinlei on 2016/12/29.
+ * 1、自定义view的属性
+ * 2、在View的构造方法中获取我们自定义的属性(确认要能够走构造，构造方法要调用(多参数))
+ * 3、重写onMeasure(非必须)  进行测量
+ * 4、重写onDraw方法  进行绘制
  */
 
 public class CustomTitleView extends View {
@@ -43,7 +48,8 @@ public class CustomTitleView extends View {
         super(context, attrs, defStyleAttr);
 
         //获取我们自定义的样式属性
-        TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CustomTitleView, defStyleAttr, 0);
+        TypedArray typedArray = context.getTheme()
+                .obtainStyledAttributes(attrs, R.styleable.CustomTitleView, defStyleAttr, 0);
 
         int n = typedArray.getIndexCount();
         for (int i = 0; i < n; i++) {
@@ -61,7 +67,8 @@ public class CustomTitleView extends View {
                 case R.styleable.CustomTitleView_titleTextSize:
                     //默认设置字体的大小16dp  TypedValue也可以把sp转换为px
                     mTitleTextSize = typedArray.getDimensionPixelSize(arr,
-                            (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));
+                            (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16,
+                                    getResources().getDisplayMetrics()));
                     break;
             }
         }
@@ -77,11 +84,11 @@ public class CustomTitleView extends View {
             @Override
             public void onClick(View view) {
                 mTitleText = randomText();
-                postInvalidate(); //  如果调用的是这个方法,那么初次显示的是多长的字符串,那么背景的大小
+                // postInvalidate(); //  如果调用的是这个方法,那么初次显示的是多长的字符串,那么背景的大小
                 //就是onMeasure的时候计算出来的首次的字符串的长度,而在次被点击的时候,只会去调用View的onDraw方法
                 //而不会再次调用onMeasure方法,所以宽度自定义view的宽度并不会因为字符串的长度的改变而改变
 
-                //requestLayout();  //  如果想要改变字符串长度之后去改变自定义view的宽度,那么就可以调用左边的这个方法
+                requestLayout();  //  如果想要改变字符串长度之后去改变自定义view的宽度,那么就可以调用左边的这个方法
                 //这个方法会重新走onMeasure方法,重新计算字符串的宽度,然后改变自定义view的宽度
             }
         });
@@ -136,7 +143,7 @@ public class CustomTitleView extends View {
             int desired = (int) (getPaddingTop() + textHeight + getPaddingBottom());
             height = desired;
         }
-
+        //重新计算大小
         setMeasuredDimension(width, height);
 
     }
@@ -146,9 +153,22 @@ public class CustomTitleView extends View {
         // super.onDraw(canvas);
         mPaint.setColor(Color.YELLOW);
         mPaint.setAntiAlias(true);
+        //绘制背景色
         canvas.drawRect(0, 0, getMeasuredWidth(), getMeasuredHeight(), mPaint);
         // mPaint.setTextAlign(Paint.Align.LEFT);
         mPaint.setColor(mTitleTextColor);
-        canvas.drawText(mTitleText, getWidth() / 2 - mRect.width() / 2 - mRect.left, getHeight() / 2 + mRect.height() / 2, mPaint);
+
+        float startX = getWidth() / 2 - mRect.width() / 2;
+
+        Paint.FontMetricsInt fm = mPaint.getFontMetricsInt();
+
+        int startY = getHeight() / 2 - fm.descent + (fm.bottom - fm.top) / 2;
+
+        //画文字
+        canvas.drawText(mTitleText,
+                startX,
+                startY, mPaint);
+
+        // canvas.drawLine(0,getHeight() / 2,getWidth() , getHeight() / 2,mPaint);
     }
 }
