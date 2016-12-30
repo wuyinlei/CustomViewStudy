@@ -47,9 +47,32 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:padding="10dp"
+            android:visibility="gone"
             app:image="@mipmap/image_meizi"
             app:imageScaleType="center"
             app:titleText="@string/app_name"
             app:titleTextColor="@color/colorAccent"
             app:titleTextSize="30dp"/>
+
+        <com.renren.customviewstudy.studyview.TranslateViewTest
+            android:layout_width="wrap_content"
+            android:visibility="visible"
+            android:layout_height="wrap_content"/>
+
+        <com.renren.customviewstudy.studyview.RotateViewTest
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:id="@+id/rotateViewTest"/>
+
+        <com.renren.customviewstudy.studyview.ClipViewTest
+           android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.renren.customviewstudy.studyview.SaveViewTest
+
+            android:visibility="gone" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
 </LinearLayout>
